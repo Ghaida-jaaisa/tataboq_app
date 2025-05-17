@@ -31,6 +31,10 @@ class _ImagePageState extends State<ImagePage> {
   int leftImageNumber = 4;
   int rightImageNumber = 6;
 
+  void changeImage() {
+    leftImageNumber = Random().nextInt(8) + 1 ;
+    rightImageNumber = Random().nextInt(8) + 1 ;
+  }
   @override
   Widget build(BuildContext context) {
     return Column(
@@ -59,8 +63,7 @@ class _ImagePageState extends State<ImagePage> {
           ElevatedButton(
               onPressed: () {
                 setState(() {
-                  leftImageNumber = Random().nextInt(8) + 1 ;
-                  rightImageNumber = Random().nextInt(8) + 1 ;
+                 changeImage();
                 });
               },
               child: Padding(
