@@ -30,23 +30,15 @@ class _ImagePageState extends State<ImagePage> {
 
   int leftImageNumber = 4;
   int rightImageNumber = 6;
-  String status = "" ;
-
-  void setStatus() {
-    if (leftImageNumber == rightImageNumber) {
-      status = "You Win ... ";
-    }
-    else {
-      status = "Try Again .. ";
-    }
-  }
 
   @override
   Widget build(BuildContext context) {
     return Column(
         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
         children: [
-          Text("$status", style: TextStyle(fontSize:42.0 , color: Colors.white)) ,
+          Text(
+              leftImageNumber == rightImageNumber ?  "You Win ... " :  "Try Again .. "
+              , style: TextStyle(fontSize:42.0 , color: Colors.white)) ,
           Padding(
             padding: const EdgeInsets.all(40.0),
             child: Row(
@@ -69,7 +61,6 @@ class _ImagePageState extends State<ImagePage> {
                 setState(() {
                   leftImageNumber = Random().nextInt(8) + 1 ;
                   rightImageNumber = Random().nextInt(8) + 1 ;
-                  setStatus();
                 });
               },
               child: Padding(
